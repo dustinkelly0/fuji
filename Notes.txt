@@ -1,0 +1,44 @@
+Lab 01 - 
+
+First deployment to your Kubernetes cluster that is running on your laptop using Docker Desktop
+
+# this command uses kustomize to 'build' a k8's configuration output to fuji1-pf.yaml
+-- kustomize build https://github.com/pingidentity/pingidentity-devops-getting-started/20-kubernetes/01-standalone/pingfederate >fuji1-pf.yaml
+-- kubectl apply -f fuji1-pf.yaml
+
+
+# kubectl to forward ports from within the cluster to your localhost port 9888
+
+-- kubectl port-forward service/pingfederate 9888:9999
+-- Open a browser to https://localhost:9888/pingfederate/app
+-- Accept certificate exception if prompted
+Login with username: Administrator/ pw: 2FederateM0re
+
+Common Commands:
+
+kubectl get pods --all-namespaces  
+kubectl logs -f <name-of-container>
+
+kustomize build . >outputfile.yaml
+kubectl apply -f outputfile.yaml
+
+##########
+Lab 02 - 
+
+Using kustomize to deploy from PingFederate server profile base configuration available on pingidentity-devops-getting-started via GutHub
+
+Build & Run the K8 Stack
+
+-- kustomize build . >fuji2-deployment.yaml
+-- kubectl apply -f fuji2-deployment.yaml
+
+Execute the following command:
+
+# Forward k8's cluster ports:
+
+-- kubectl port-forward service/pingfederate 9888:9999
+
+Navigate to PingFederate Administration Console & Login
+
+Open a browser to https://localhost:9888/pingfederate/app
+Login with username: Administrator/ pw: 2FederateM0re
