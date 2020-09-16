@@ -42,3 +42,14 @@ Navigate to PingFederate Administration Console & Login
 
 Open a browser to https://localhost:9888/pingfederate/app
 Login with username: Administrator/ pw: 2FederateM0re
+
+Lab 03 - 
+
+kustomize build . >fuji3-local-profile-deploy.yaml
+kubectl apply -f fuji3-local-profile-deploy.yaml
+kubectl delete -f fuji3-local-profile-deploy.yaml
+
+Make a change to your server profile, rebuild deployment
+
+kustomize build . >fuji3-local-profile-deploy.yaml
+kubectl apply -f fuji3-local-profile-deploy.yaml
